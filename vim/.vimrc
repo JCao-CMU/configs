@@ -36,6 +36,14 @@ filetype on
 filetype plugin on
 
 " dracula theme
+
+if has('termguicolors')
+  set termguicolors
+endif
+" Fallback for 256 colors
+set t_Co=256
+
+
 packadd! dracula
 colorscheme dracula
 
@@ -84,7 +92,11 @@ set smartcase
 " don't save backup files
 set nobackup
 
+" Always need the bash-like autocomplete
+set wildmode=longest,list,full
+set wildmenu
 
+let g:neocomplete#enable_at_startup = 1
 """"""""""""""""""""""""""""""""""""""""
 " Plugins
 """"""""""""""""""""""""""""""""""""""""
